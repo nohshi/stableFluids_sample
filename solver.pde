@@ -60,12 +60,13 @@ void addSourceVelocity() {
   PVector mouseVel = new PVector(mouseX - pmouseX, mouseY - pmouseY);
   mouseVel.mult(srcVelAmp);
   
+  //マウス座標をグリッド上での座標(0.~xn or yn.)にする
+  float mx = float(mouseX) * xn / width; //mouse x
+  float my = float(mouseY) * yn / height; //mouse y
+  
   //壁グリッド以外を全て参照
   for (int i=1; i<xn-1; i++) {
     for (int j=1; j<yn-1; j++) {
-      //マウス座標をグリッド上での座標(0.~xn or yn.)にする
-      float mx = float(mouseX) * xn / width; //mouse x
-      float my = float(mouseY) * yn / height; //mouse y
       //マウスを中心に円状に広がる重み付けの数値pctを計算する
       /*
       PVector p = new PVector(i - mx, j - my);
@@ -91,12 +92,13 @@ void addSourceInk() {
   //マウスが押されていないと計算しない
   if (!mousePressed) return;
   
+  //マウス座標をグリッド上での座標(0 ~ xn-1 or yn-1)にする
+  float mx = float(mouseX) * xn / width;
+  float my = float(mouseY) * yn / height;
+  
   //壁グリッド以外を全て参照
   for (int i=1; i<xn-1; i++) {
     for (int j=1; j<yn-1; j++) {
-      //マウス座標をグリッド上での座標(0 ~ xn-1 or yn-1)にする
-      float mx = float(mouseX) * xn / width;
-      float my = float(mouseY) * yn / height;
       //マウスを中心に円状に広がる重み付けの数値pctを計算する
       /*
       PVector p = new PVector(i - mx, j - my);
