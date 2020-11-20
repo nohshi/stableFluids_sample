@@ -41,12 +41,13 @@ void addSourceVelocity() {
   //srcVelAmpは力を加える範囲を調整するパラメーター。GUIで変更できます
   mouseVel.mult(srcVelAmp);
   
+  //マウス座標をグリッド上での座標(0.~xn or yn.)にする
+  float mx = float(mouseX) * xn / width; //mouse x
+  float my = float(mouseY) * yn / height; //mouse y
+  
   //壁グリッド以外を全て参照
   for (int i=1; i<xn-1; i++) {
     for (int j=1; j<yn-1; j++) {
-      //マウス座標をグリッド上での座標(0.~xn or yn.)にする
-      float mx = float(mouseX) * xn / width; //mouse x
-      float my = float(mouseY) * yn / height; //mouse y
       //マウスを中心に円状に広がる重み付けの数値pctを計算する
       //srcRadは力を加える範囲を調整するパラメーター。GUIで変更できます
       float pct = 1 - dist(i,j, mx, my) / srcRad;
