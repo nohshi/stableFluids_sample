@@ -108,8 +108,8 @@ void addSourceInk() {
       float pct = 1 - dist(i,j, mx, my) / srcRad;
       pct = max(0, pct);
       //マウス速度と重み付け関数を掛け合わせて速度に足す
-      ink[curr_i][i][j] += pct * 255 * srcInkAmp;
-      ink[curr_i][i][j] = min(ink[curr_i][i][j], 255);
+      ink[curr_i][i][j] += pct * srcInkAmp;
+      ink[curr_i][i][j] = min(ink[curr_i][i][j], 1);
     }
   }
 }

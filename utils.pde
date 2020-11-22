@@ -42,20 +42,7 @@ void displayTiles(float[][] array) {
     for (int j=0; j<height; j++) {
       int x = i * xn / width;
       int y = j * yn / height;
-      pixels[dsp_id(i,j)] = color(array[x][y]);
-    }
-  }
-  updatePixels();
-}
-
-// グリッドの中身を表示
-void displayInk(float[][] array) {
-  loadPixels();
-  for (int i=0; i<width; i++) {
-    for (int j=0; j<height; j++) {
-      int x = i * xn / width;
-      int y = j * yn / height;
-      pixels[dsp_id(i,j)] = color(255-array[x][y]);
+      pixels[dsp_id(i,j)] = color(array[x][y]*255);
     }
   }
   updatePixels();
@@ -122,16 +109,23 @@ void initGUI() {
      .setRange(0, 0.4)
      .setLabel("srcVelAmp")
      .moveTo(g1);
+     
+  cp5.addSlider("srcInkAmp")
+     .setPosition(0, 30)
+     .setSize(130,10)
+     .setRange(0, 0.4)
+     .setLabel("srcInkAmp")
+     .moveTo(g1);
  
  cp5.addSlider("srcRad")
-     .setPosition(0, 30)
+     .setPosition(0, 50)
      .setSize(130,10)
      .setRange(0.01, 10)
      .setLabel("srcRad")
      .moveTo(g1);
      
  cp5.addSlider("max_gsIterate")
-     .setPosition(0, 50)
+     .setPosition(0, 70)
      .setSize(130,10)
      .setRange(1, 20000)
      .setLabel("max_gsIterate")
