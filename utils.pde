@@ -42,7 +42,7 @@ void displayTiles(float[][] array) {
     for (int j=0; j<height; j++) {
       int x = i * xn / width;
       int y = j * yn / height;
-      pixels[dsp_id(i,j)] = color(array[x][y]);
+      pixels[dsp_id(i,j)] = color(array[x][y]*255);
     }
   }
   updatePixels();
