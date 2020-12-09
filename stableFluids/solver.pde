@@ -170,6 +170,7 @@ void advectVelocity() {
       int idx = floor(px);
       int idy = floor(py);
       //流体格子内に収まるよう強制
+      //constrain(x, a, b)は、xがa以下の値はa、b以上の値はb、それ以外はxを返します
       idx = constrain(idx, 1, xn-2);
       idy = constrain(idy, 1, yn-2);
 
