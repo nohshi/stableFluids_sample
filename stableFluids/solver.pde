@@ -18,15 +18,15 @@ void reset() {
 void updateSolver() {
   
   //外力項 //速度とインクを流し込む
-  addSourceVelocity();
-  //addSourceInk();
+  addSourceVelocity(); // 実装済み
+  //addSourceInk(); // 3.2.で実装
   
   //圧力項
-  //projectVelocity();
+  //projectVelocity(); // 3.4.で実装
   
   //移流項
-  //advectVelocity();
-  //advectInk();
+  //advectVelocity(); // 実装済み
+  //advectInk(); // 3.3.で実装
   
 }
 
@@ -170,7 +170,6 @@ void advectVelocity() {
       int idx = floor(px);
       int idy = floor(py);
       //流体格子内に収まるよう強制
-      //constrain(x, a, b)は、xがa以下の値はa、b以上の値はb、それ以外はxを返します
       idx = constrain(idx, 1, xn-2);
       idy = constrain(idy, 1, yn-2);
 
