@@ -7,7 +7,7 @@ final float h = 1.f/max(xn, yn); //微小距離Δx
 float dt = 1.f/60; //微小時間Δt //シミュレーション上でのフレーム間の時間
 int max_gsIterate = 50; //反復法の最大反復数
 float srcRad = 4; //速度やインク等を書き込む範囲の半径
-float srcVelAmp = 0.25; //書き込む速度の大きさ
+float srcVelAmp = 0.1; //書き込む速度の大きさ
 
 // 配列のid
 int curr_v = 0; //current velocity
